@@ -12,6 +12,10 @@ const { auth: ctrl } = require("../../controllers");
 
 router.post("/signup", validation(userJoiSchema), ctrlWrapper(ctrl.signup));
 
+router.get("/verify/:verifyToken", ctrlWrapper(ctrl.verify));
+
+router.post("/verify", ctrlWrapper(ctrl.verifyResending));
+
 router.post("/login", validation(userJoiSchema), ctrlWrapper(ctrl.login));
 
 router.get(
